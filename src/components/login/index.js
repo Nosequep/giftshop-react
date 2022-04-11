@@ -1,4 +1,7 @@
 import React from 'react'
+import {
+  Link
+} from "react-router-dom";
 import { useState } from 'react';
 
 const Login = () => {
@@ -57,7 +60,7 @@ const Login = () => {
           <small className="text-danger">{formErrors.password}</small>
         </div>
         <div className="text-right">
-          <a className="link-primary"><small>Register now</small></a>
+          <Link className="link-primary" to="/signup"><small>Register now</small></Link>
         </div>
         <div className="form-group">
           <input type="submit" className="btn btn-success" value="Login"/>

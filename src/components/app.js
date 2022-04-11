@@ -1,8 +1,10 @@
 import {
   BrowserRouter as Router,
   Switch,
+  Routes,
   Route,
-  Link
+  Link,
+  BrowserRouter
 } from "react-router-dom";
 import logo from '../assets/logo.svg';
 import './app.css';
@@ -18,11 +20,19 @@ import ProductAdministration from './product-administration';
 function App() {
   return (
     <div className="App">
-      <Nav />
-      <div className="container main-container">
-        <Login />
-      </div>
-      <Footer />
+      <BrowserRouter>
+        <Nav />
+        <div className="container main-container">
+            <Routes>
+              <Route exact path="/login" element={<Login/>}/>
+              <Route exact path="/signup" element={<Signup/>}/>
+              <Route exact path="/" element={<ProductList/>}/>
+              <Route exact path="/cart" element={<ShoppingCart/>}/>
+              <Route exact path="/admin" element={<ProductAdministration/>}/>
+            </Routes>
+        </div>
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }

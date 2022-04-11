@@ -1,4 +1,7 @@
 import React from 'react'
+import {
+  Link
+} from "react-router-dom";
 import { useState } from 'react';
 
 const Signup = () => {
@@ -72,7 +75,7 @@ const Signup = () => {
         </div>
         <div className="form-group">
           <input type="submit" className="btn btn-success" value="Register"/>
-          <a className="link-primary ml-2" ><small>Do you already have an account?</small></a>
+          <Link className="link-primary ml-2" to="/login"><small>Do you already have an account?</small></Link>
         </div>
       </form>
     </div>
