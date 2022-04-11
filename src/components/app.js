@@ -1,3 +1,9 @@
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import logo from '../assets/logo.svg';
 import './app.css';
 import Footer from '../layouts/footer';
@@ -7,19 +13,14 @@ import ProductList from './product-list';
 import ShoppingCart from './shopping-cart';
 import Login from './login';
 import Signup from './signup';
+import ProductAdministration from './product-administration';
 
 function App() {
   return (
     <div className="App">
       <Nav />
-      {/*
-      <Header title={"Home"}/>
       <div className="container main-container">
-        
-      </div>
-      */}
-      <div className="container main-container">
-        <ShoppingCart />
+        <Login />
       </div>
       <Footer />
     </div>

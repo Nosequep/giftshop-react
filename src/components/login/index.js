@@ -47,7 +47,7 @@ const Login = () => {
       }
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label >Email</label>
+          <label htmlFor="email">Email</label>
           <input type="text" className="form-control" name="email" value={formValues.email} onChange={handleChange} />
           <small className="text-danger">{formErrors.email}</small>
         </div>
