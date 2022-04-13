@@ -1,3 +1,7 @@
+import PropTypes from 'prop-types';
+import "./product-item.css"
+import { Link } from "react-router-dom";
+
 const ProductItem = (props) => {
   return (
     <div className="product-container border bg-light rounded p-1 ">
@@ -6,7 +10,7 @@ const ProductItem = (props) => {
         </div>
         <div className="p-2 text-justify">
             <h6 className="text-product">{ props.name }</h6>
-            <ul className="products-props">
+            <ul className="products-props text-product">
                 <li>Price: { props.price}</li>
                 <li>Category: { props.categoryName }</li>
             </ul>
@@ -14,10 +18,18 @@ const ProductItem = (props) => {
         <div className="mt-4">
         </div>
         <div className="button-container p-2">
-            <button id="DetailButton" className="btn btn-secondary" >Details</button>
+            <Link className="btn btn-secondary" to={"/product/"+props.id}>Details</Link>
         </div>
     </div>
   );
 }
+
+ProductItem.prototype = {
+    name: PropTypes.string.isRequired
+}
+
+ProductItem.defaultProps = {
+    name: "Default"
+};
 
 export default ProductItem

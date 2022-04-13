@@ -1,0 +1,14 @@
+.product-image {
+  object-fit: contain;
+  height: 200px;
+  width: 100%;
+}
+
+.text-product {
+  display: -webkit-box;
+  max-width: auto;
+  max-height: 85px;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
