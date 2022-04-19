@@ -14,7 +14,8 @@ const ProductDetail = (props) => {
   useEffect(() => {
     axios.get(`https://localhost:5001/api/products/id/${params.id}`)
       .then(response => {
-          setProduct(response.data);
+        response.data.publishedDate = new Date(response.data.publishedDate).toLocaleDateString("en-US");
+        setProduct(response.data);
       })
       .catch(error => {
           console.log(error);
@@ -29,11 +30,11 @@ const ProductDetail = (props) => {
             <img className="img-fluid product-image" src={product.imageUrl}/>
           </div>
         </div>
-        <div className="col-lg-6">
+        <div className="col-lg-6 text-left">
           <h3 className="mb-0">
             <p className="text-dark text-justify">{product.name}</p>
           </h3>
-          <div className="mb-1 text-muted">Publication date: {}</div>
+          <div className="mb-1 text-muted">Publication date: {product.publishedDate}</div>
           <div className="mb-1 text-muted">Category: {product.category.name}</div>
           <p className="card-text mb-auto text-justify">{product.description}</p>
         </div>

@@ -7,7 +7,7 @@ const ProductSearchbar = (props) => {
                     <optgroup label="Categories">
                         <option value="0">All</option>
                         {props.categories.map(c =>
-                            <option  key={c.id} value={c.id}>{c.name}</option>
+                            <option  key={c.categoryId} value={c.id}>{c.name}</option>
                         )}
                     </optgroup>
                 </select>

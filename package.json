@@ -9,6 +9,7 @@
     "axios": "^0.26.1",
     "bootstrap": "^4.5.2",
     "flux": "^4.0.3",
+    "giftshop": "file:../../../../../Desktop/giftshop-react",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-paginate": "^8.1.2",
