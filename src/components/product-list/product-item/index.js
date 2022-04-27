@@ -12,7 +12,7 @@ const ProductItem = (props) => {
             <h6 className="text-product">{ props.name }</h6>
             <ul className="products-props text-product">
                 <li>Price: { props.price}</li>
-                <li>Category: { props.categoryName }</li>
+                <li>Category: { props.category.name }</li>
             </ul>
         </div>
         <div className="mt-4">

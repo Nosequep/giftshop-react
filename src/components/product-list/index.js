@@ -8,6 +8,7 @@ import { PaginateRequest } from "../../models/paginate-request";
 const ProductList = () => {
     const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [paginateResponse, setPaginateResponse] = useState();
 
     useEffect(() => {
         axios.get("https://localhost:5001/api/products/categories")
@@ -18,8 +19,9 @@ const ProductList = () => {
                 console.log(error);
             });
 
-        axios.get("https://localhost:5001/api/products")
+        axios.get("https://localhost:5001/api/products", {params: {pageSize: 5}})
             .then(response => {
+                setPaginateResponse(response.data);
                 setProducts(response.data.items);
             })
             .catch(error => {
@@ -32,19 +34,23 @@ const ProductList = () => {
         console.log("update");
     },[products]);
 
-    const searchProduct = () => {
-        const PaginateRequest = {
-            page: 0,
-            pageSize: 0,
-            term: "",
-            categoryId: ""
-        }
+    const searchProduct = (paginateRequest) => {
+        axios.get("https://localhost:5001/api/products", {params: {...paginateRequest}})
+            .then(response => {
+                setPaginateResponse(response.data);
+                console.log(paginateResponse);
+                setProducts(response.data.items);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        
     }
 
     return (
         <div className="product-list">
             <div className="w-50 m-auto">
-                <ProductSearchbar categories={categories}/>
+                <ProductSearchbar categories={categories} onClick={searchProduct} {...paginateResponse}/>
             </div>
             <hr/>
             <div className="row">
